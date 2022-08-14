@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6496719328A784E0000785B6 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496719228A784E0000785B6 /* MessageData.swift */; };
+		6496719628A7E847000785B6 /* EmonotateAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496719528A7E846000785B6 /* EmonotateAPIClient.swift */; };
+		6498F87528A9482A00CDF0A8 /* EmonotateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6498F87428A9482A00CDF0A8 /* EmonotateModel.swift */; };
+		6498F87828A94A8A00CDF0A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6498F87728A94A8A00CDF0A8 /* LoginViewController.swift */; };
 		649F763A28A733DF003CA6DC /* CarvideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F763928A733DF003CA6DC /* CarvideApp.swift */; };
-		649F763C28A733DF003CA6DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F763B28A733DF003CA6DC /* ContentView.swift */; };
+		649F763C28A733DF003CA6DC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F763B28A733DF003CA6DC /* LoginView.swift */; };
 		649F763E28A733E1003CA6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649F763D28A733E1003CA6DC /* Assets.xcassets */; };
 		649F764128A733E1003CA6DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649F764028A733E1003CA6DC /* Preview Assets.xcassets */; };
 		649F764B28A733E1003CA6DC /* CarvideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F764A28A733E1003CA6DC /* CarvideTests.swift */; };
 		649F765528A733E1003CA6DC /* CarvideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F765428A733E1003CA6DC /* CarvideUITests.swift */; };
 		649F765728A733E1003CA6DC /* CarvideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F765628A733E1003CA6DC /* CarvideUITestsLaunchTests.swift */; };
+		649F766428A7349D003CA6DC /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F766328A7349D003CA6DC /* UserData.swift */; };
+		649F766728A735D3003CA6DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F766628A735D3003CA6DC /* ContentData.swift */; };
+		649F766928A7365E003CA6DC /* ValueTypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F766828A7365E003CA6DC /* ValueTypeData.swift */; };
+		64EB783F28A73A110043109F /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB783E28A73A110043109F /* RequestData.swift */; };
+		64EB784128A73AE20043109F /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB784028A73AE20043109F /* PointData.swift */; };
+		64EB784328A73B4F0043109F /* CurveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB784228A73B4F0043109F /* CurveData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6496719228A784E0000785B6 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
+		6496719528A7E846000785B6 /* EmonotateAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmonotateAPIClient.swift; sourceTree = "<group>"; };
+		6498F87428A9482A00CDF0A8 /* EmonotateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmonotateModel.swift; sourceTree = "<group>"; };
+		6498F87728A94A8A00CDF0A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		649F763628A733DF003CA6DC /* Carvide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carvide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		649F763928A733DF003CA6DC /* CarvideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvideApp.swift; sourceTree = "<group>"; };
-		649F763B28A733DF003CA6DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		649F763B28A733DF003CA6DC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		649F763D28A733E1003CA6DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		649F764028A733E1003CA6DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		649F764628A733E1003CA6DC /* CarvideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarvideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +58,12 @@
 		649F765028A733E1003CA6DC /* CarvideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarvideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		649F765428A733E1003CA6DC /* CarvideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvideUITests.swift; sourceTree = "<group>"; };
 		649F765628A733E1003CA6DC /* CarvideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarvideUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		649F766328A7349D003CA6DC /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		649F766628A735D3003CA6DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
+		649F766828A7365E003CA6DC /* ValueTypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueTypeData.swift; sourceTree = "<group>"; };
+		64EB783E28A73A110043109F /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		64EB784028A73AE20043109F /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
+		64EB784228A73B4F0043109F /* CurveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +91,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6496719428A7E835000785B6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6496719528A7E846000785B6 /* EmonotateAPIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6498F87228A9474800CDF0A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6498F87428A9482A00CDF0A8 /* EmonotateModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6498F87328A9475000CDF0A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				649F763B28A733DF003CA6DC /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6498F87628A94A7000CDF0A8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6498F87728A94A8A00CDF0A8 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		649F762D28A733DF003CA6DC = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +146,12 @@
 		649F763828A733DF003CA6DC /* Carvide */ = {
 			isa = PBXGroup;
 			children = (
+				6498F87628A94A7000CDF0A8 /* Controllers */,
+				6498F87328A9475000CDF0A8 /* Views */,
+				6498F87228A9474800CDF0A8 /* Models */,
+				6496719428A7E835000785B6 /* Network */,
+				649F766528A734AA003CA6DC /* Data */,
 				649F763928A733DF003CA6DC /* CarvideApp.swift */,
-				649F763B28A733DF003CA6DC /* ContentView.swift */,
 				649F763D28A733E1003CA6DC /* Assets.xcassets */,
 				649F763F28A733E1003CA6DC /* Preview Content */,
 			);
@@ -125,6 +181,20 @@
 				649F765628A733E1003CA6DC /* CarvideUITestsLaunchTests.swift */,
 			);
 			path = CarvideUITests;
+			sourceTree = "<group>";
+		};
+		649F766528A734AA003CA6DC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				649F766328A7349D003CA6DC /* UserData.swift */,
+				649F766628A735D3003CA6DC /* ContentData.swift */,
+				649F766828A7365E003CA6DC /* ValueTypeData.swift */,
+				64EB783E28A73A110043109F /* RequestData.swift */,
+				64EB784028A73AE20043109F /* PointData.swift */,
+				64EB784228A73B4F0043109F /* CurveData.swift */,
+				6496719228A784E0000785B6 /* MessageData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +327,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649F763C28A733DF003CA6DC /* ContentView.swift in Sources */,
+				6498F87828A94A8A00CDF0A8 /* LoginViewController.swift in Sources */,
+				6498F87528A9482A00CDF0A8 /* EmonotateModel.swift in Sources */,
+				649F766428A7349D003CA6DC /* UserData.swift in Sources */,
+				64EB784328A73B4F0043109F /* CurveData.swift in Sources */,
+				649F766728A735D3003CA6DC /* ContentData.swift in Sources */,
+				649F763C28A733DF003CA6DC /* LoginView.swift in Sources */,
+				6496719328A784E0000785B6 /* MessageData.swift in Sources */,
+				64EB783F28A73A110043109F /* RequestData.swift in Sources */,
 				649F763A28A733DF003CA6DC /* CarvideApp.swift in Sources */,
+				649F766928A7365E003CA6DC /* ValueTypeData.swift in Sources */,
+				6496719628A7E847000785B6 /* EmonotateAPIClient.swift in Sources */,
+				64EB784128A73AE20043109F /* PointData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
