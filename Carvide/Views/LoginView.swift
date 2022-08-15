@@ -11,43 +11,47 @@ import Combine
 struct LoginView: View {
     @ObservedObject var model = EmonotateModel()
 
-    @State var username: String = ""
-    @State var password: String = ""
+    @State private var username: String = ""
+    @State private var password: String = ""
+    @State private var isNextView: Bool = false
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Carvide")
-                .font(.system(size: 48,
-                              weight: .heavy))
-            VStack(spacing: 24) {
-                TextField("User Name", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .frame(maxWidth: 320)
+        NavigationView {
+            VStack(alignment: .center) {
+                Text("Carvide")
+                    .font(.system(size: 48,
+                                  weight: .heavy))
+                VStack(spacing: 24) {
+                    TextField("User Name", text: $username)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .frame(maxWidth: 320)
 
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(maxWidth: 320)
-            }
-            .frame(height: 200)
-            Button(action: {
-                Task.init {
-                    await LoginViewController(view: self, model: model)
-                        .login(username, password)
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(maxWidth: 320)
                 }
-            },
-            label: {
-                Text("Login")
-                    .fontWeight(.medium)
-                    .frame(minWidth: 160)
-                    .foregroundColor(.white)
-                    .padding(12)
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
-            })
-
-            Spacer()
+                .frame(height: 200)
+                NavigationLink(
+                    destination: ContentView(model: model),
+                    isActive: $isNextView,
+                    label: {
+                        Button(action: {
+                            Task.init {
+                                await LoginViewController(view: self, model: model)
+                                    .login(username, password)
+                                self.isNextView.toggle()
+                            }
+                        }) {
+                            Text("ログイン")
+                        }
+                    })
+            }
         }
+        .padding()
+        .navigationTitle("Carvide")
+        .navigationBarHidden(false)
+        .navigationViewStyle(.stack)
     }
     
     public func failedLoadUserData() {
@@ -55,7 +59,7 @@ struct LoginView: View {
     }
     
     public func successLoadUserData() {
-        print("success")
+        
     }
 }
 

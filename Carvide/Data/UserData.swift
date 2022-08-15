@@ -8,18 +8,18 @@
 import Foundation
 
 struct UserData: Codable {
-    let id: Int
-    let password: String
-    let last_login: String
-    let is_superuser: Bool
-    let username: String
-    let email: String
-    let is_staff: Bool
-    let date_joined: String
-    let last_updated: String
-    let groups: [String]
-    let user_permissions: [String]
-    let is_lazy_user: Bool
-    let sended_mail: Bool?
-    let sended_mail_message: Bool?
+    var id: Int
+    var password: String
+    var last_login: String
+    var is_superuser: Bool
+    var username: String
+    var email: String
+    var is_staff: Bool
+    var date_joined: String
+    var last_updated: String
+    var groups: [String]
+    var user_permissions: [String]
+    var is_lazy_user: Bool
+    var sended_mail: Bool?
+    var sended_mail_message: Bool?
 }

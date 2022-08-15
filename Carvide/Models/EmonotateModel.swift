@@ -8,7 +8,11 @@
 import Foundation
 
 class EmonotateModel: ObservableObject {
-    var user: UserData? = nil
+    @Published var user: UserData? = nil
+    
+    enum EmonotateModelError: Error {
+        case CANT_CREATE_REQUEST
+    }
     
     func login(_ username: String, _ password: String) async {
         let client = EmonotateAPIClient()
@@ -28,6 +32,16 @@ class EmonotateModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func getMe() async -> UserData? {
+        let client = EmonotateAPIClient()
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        guard let request = getMeRequest() else { return nil }
+        let element1 = try? await client.send(with: request)
+        let userData = try? decoder.decode(UserData.self, from: element1!.0)
+        return userData
     }
     
     private func getLoginData(_ username: String, _ password: String) -> URLRequest? {
