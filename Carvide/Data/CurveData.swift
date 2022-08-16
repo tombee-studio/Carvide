@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CurveData: Codable {
+struct CurveData: Codable, Identifiable {
     let id: Int
-    let created: Date
+    let created: String
     let values: [PointData]
     let version: String
     let room_name: String

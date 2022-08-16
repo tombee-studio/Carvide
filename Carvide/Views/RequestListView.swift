@@ -8,21 +8,32 @@
 import SwiftUI
 
 struct RequestListView: View {
-    @State var requestList: ResultListData<RequestData>
-    
-    init(requestList: ResultListData<RequestData>) {
-        self.requestList = requestList
-    }
+    @State var result: ResultListData<RequestData>? = nil
     
     var body: some View {
-        Text("Hello, World!")
+        if result != nil {
+            if let result = result {
+                List {
+                    ForEach(result.models) { request in
+                        Text(request.title)
+                    }
+                }
+            }
+        } else {
+            VStack(alignment: .center) {
+                Text("お待ちください")
+            }.task {
+                let model = EmonotateModel()
+                if let requestList = await model.getRequestList() {
+                    self.result = requestList
+                }
+            }
+        }
     }
 }
 
 struct RequestListView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestListView(
-            requestList: try! ResultListData<RequestData>(
-                from: JSONDecoder() as! Decoder))
+        RequestListView()
     }
 }

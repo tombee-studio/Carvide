@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RequestData: Codable {
+struct RequestData: Codable, Identifiable {
     let id: Int
     let room_name: String
     let created: Data

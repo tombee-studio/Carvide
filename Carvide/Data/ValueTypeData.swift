@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ValueTypeData: Codable {
+struct ValueTypeData: Codable, Identifiable {
     enum AxisType: Int, Codable {
         case MID_ZERO = 1
         case MIN_ZERO = 2

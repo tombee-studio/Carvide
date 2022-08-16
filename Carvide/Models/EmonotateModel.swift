@@ -34,6 +34,21 @@ class EmonotateModel: ObservableObject {
         }
     }
     
+    func getRequestList() async -> ResultListData<RequestData>? {
+        let client = EmonotateAPIClient()
+        do {
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            guard let request = buildURLRequestOfRequest() else { return nil }
+            let element = try await client.send(with: request)
+            let resultData = try decoder.decode(ResultListData<RequestData>.self, from: element.0)
+            return resultData
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
     func getMe() async -> UserData? {
         let client = EmonotateAPIClient()
         let decoder = JSONDecoder()
@@ -67,6 +82,14 @@ class EmonotateModel: ObservableObject {
     
     private func getMeRequest() -> URLRequest? {
         guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/me/") else {
+            return nil
+        }
+        let request = URLRequest(url: url)
+        return request
+    }
+    
+    private func buildURLRequestOfRequest() -> URLRequest? {
+        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/") else {
             return nil
         }
         let request = URLRequest(url: url)

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ContentData: Codable {
+struct ContentData: Codable, Identifiable {
     let id: Int
-    let created: Date
+    let created: String
     let url: URL
     let user: UserData
     let is_youtube: Bool
