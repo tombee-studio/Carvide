@@ -15,7 +15,13 @@ struct RequestListView: View {
             if let result = result {
                 List {
                     ForEach(result.models) { request in
-                        Text(request.title)
+                        NavigationLink(
+                            destination: CreateCurveView(
+                                content: request.content,
+                                valueType: request.value_type),
+                            label: {
+                                Text(request.title)
+                            })
                     }
                 }
             }

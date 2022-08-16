@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640E9A7928AB520B009255C0 /* CreateCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640E9A7828AB520B009255C0 /* CreateCurveView.swift */; };
 		6437C09A28AA24EF00B7F29F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437C09928AA24EF00B7F29F /* ContentView.swift */; };
 		6437C09C28AA2A6600B7F29F /* RequestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437C09B28AA2A6600B7F29F /* RequestListView.swift */; };
 		6437C09E28AA2B5B00B7F29F /* ResultListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437C09D28AA2B5B00B7F29F /* ResultListData.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		640E9A7828AB520B009255C0 /* CreateCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCurveView.swift; sourceTree = "<group>"; };
 		6437C09928AA24EF00B7F29F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6437C09B28AA2A6600B7F29F /* RequestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListView.swift; sourceTree = "<group>"; };
 		6437C09D28AA2B5B00B7F29F /* ResultListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListData.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				6498F87928A9832E00CDF0A8 /* ProfileView.swift */,
 				6437C09928AA24EF00B7F29F /* ContentView.swift */,
 				6437C09B28AA2A6600B7F29F /* RequestListView.swift */,
+				640E9A7828AB520B009255C0 /* CreateCurveView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640E9A7928AB520B009255C0 /* CreateCurveView.swift in Sources */,
 				6498F87828A94A8A00CDF0A8 /* LoginViewController.swift in Sources */,
 				6498F87A28A9832E00CDF0A8 /* ProfileView.swift in Sources */,
 				6437C09A28AA24EF00B7F29F /* ContentView.swift in Sources */,
