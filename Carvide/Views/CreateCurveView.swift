@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateCurveView: View {
     @State private var points: [PointData] = []
+    @State private var currentPoints: [PointData] = []
     
     let content: ContentData
     let valueType: ValueTypeData
@@ -27,26 +28,41 @@ struct CreateCurveView: View {
                     .gesture(
                         DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged({ value in
-                                points.append(PointData(cgpoint: value.location))
-                                points = points.sorted { pointA, pointB in
+                                currentPoints.append(PointData(cgpoint: value.location))
+                                currentPoints = currentPoints.sorted(by: { pointA, pointB in
                                     pointA.x < pointB.x
-                                }
+                                })
                             })
                             .onEnded({ value in
-                                points.append(PointData(cgpoint: value.location))
-                                points = points.sorted { pointA, pointB in
+                                currentPoints.append(PointData(cgpoint: value.location))
+                                currentPoints = currentPoints.sorted { pointA, pointB in
                                     pointA.x < pointB.x
                                 }
+                                mergePoints()
+                                currentPoints = []
                             })
                     )
                 
-                // 追加ずみのLineの描画
                 Path { path in
                     path.addLines(points.map { CGPoint(x: CGFloat($0.x), y: CGFloat($0.y)) })
-                }.stroke(Color.red, lineWidth: 1)
+                }.stroke(Color.red, lineWidth: 3)
                 
+                Path { path in
+                    path.addLines(currentPoints.map { CGPoint(x: CGFloat($0.x), y: CGFloat($0.y)) })
+                }.stroke(Color.blue, lineWidth: 3)
             }.padding(5)
         }
+    }
+    
+    func mergePoints() {
+        print(currentPoints.count)
+        let startX = currentPoints[0].x
+        let endX = currentPoints[currentPoints.count - 1].x
+        points = points.filter({ point in startX > point.x || point.x > endX })
+        points += currentPoints
+        points = points.sorted(by: { pointA, pointB in
+            pointA.x < pointB.x
+        })
     }
 }
 
