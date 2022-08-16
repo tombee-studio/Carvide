@@ -18,8 +18,8 @@ struct UserData: Codable, Identifiable {
     var date_joined: String
     var last_updated: String
     var groups: [String]
-    var user_permissions: [String]
+    var user_permissions: [Int]
     var is_lazy_user: Bool
     var sended_mail: Bool?
-    var sended_mail_message: Bool?
+    var sended_mail_message: String?
 }

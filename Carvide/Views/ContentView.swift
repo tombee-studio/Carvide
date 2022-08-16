@@ -20,6 +20,10 @@ struct ContentView: View {
                 Image(systemName: "1.square.fill")
                 Text("Profile").font(.system(size: 24))
             }.navigationTitle("プロファイル")
+            RequestListView().tabItem() {
+                Image(systemName: "2.square.fill")
+                Text("Request").font(.system(size: 24))
+            }.navigationTitle("リクエスト")
         }
     }
 }

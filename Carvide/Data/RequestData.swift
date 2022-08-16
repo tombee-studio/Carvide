@@ -10,7 +10,7 @@ import Foundation
 struct RequestData: Codable, Identifiable {
     let id: Int
     let room_name: String
-    let created: Data
+    let created: String
     let title: String
     let description: String
     let intervals: Int
@@ -19,4 +19,6 @@ struct RequestData: Codable, Identifiable {
     let is_able_to_send: Bool
     let content: ContentData
     let value_type: ValueTypeData
+    let owner: UserData
+    let expiration_date: String
 }

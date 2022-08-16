@@ -28,7 +28,6 @@ class EmonotateModel: ObservableObject {
             let element2 = try await client.send(with: requestForMeAPI)
             guard let data = element2.0 as? Data else { return }
             guard let response = element2.1 as? HTTPURLResponse else { return }
-            self.user = try decoder.decode(UserData.self, from: data)
         } catch {
             print(error.localizedDescription)
         }
@@ -41,10 +40,12 @@ class EmonotateModel: ObservableObject {
             decoder.dateDecodingStrategy = .iso8601
             guard let request = buildURLRequestOfRequest() else { return nil }
             let element = try await client.send(with: request)
-            let resultData = try decoder.decode(ResultListData<RequestData>.self, from: element.0)
+            guard let data = element.0 as? Data else { return nil }
+            guard let response = element.1 as? HTTPURLResponse else { return nil }
+            let resultData = try decoder.decode(ResultListData<RequestData>.self, from: data)
             return resultData
         } catch {
-            print(error.localizedDescription)
+            print(error)
         }
         return nil
     }
@@ -89,7 +90,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func buildURLRequestOfRequest() -> URLRequest? {
-        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/") else {
+        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/?format=json") else {
             return nil
         }
         let request = URLRequest(url: url)
