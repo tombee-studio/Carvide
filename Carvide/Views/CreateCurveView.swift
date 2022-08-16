@@ -27,13 +27,13 @@ struct CreateCurveView: View {
                     .gesture(
                         DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged({ value in
-                                points.append(PointData(point: value.location))
+                                points.append(PointData(cgpoint: value.location))
                                 points = points.sorted { pointA, pointB in
                                     pointA.x < pointB.x
                                 }
                             })
                             .onEnded({ value in
-                                points.append(PointData(point: value.location))
+                                points.append(PointData(cgpoint: value.location))
                                 points = points.sorted { pointA, pointB in
                                     pointA.x < pointB.x
                                 }

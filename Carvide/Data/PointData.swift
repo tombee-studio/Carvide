@@ -21,9 +21,9 @@ struct PointData: Codable {
         self.type = ""
     }
     
-    init(point: CGPoint) {
-        self.x = Float(point.x)
-        self.y = Float(point.y)
+    init(cgpoint: CGPoint) {
+        self.x = Float(cgpoint.x)
+        self.y = Float(cgpoint.y)
         self.axis = ""
         self.type = ""
     }
