@@ -87,6 +87,7 @@
 		64F5E13C28ADDDA700033654 /* CurveVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveVideoPlayer.swift; sourceTree = "<group>"; };
 		64F5E13E28ADE37900033654 /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
 		64F5E14128ADEB8100033654 /* player.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = player.html; sourceTree = "<group>"; };
+		64F5E14328AE075900033654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		758403B4BCC616D5091C9F2E /* Pods_CarvideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarvideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947209C8CA8D99A5BF73456D /* Pods-CarvideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarvideTests.release.xcconfig"; path = "Target Support Files/Pods-CarvideTests/Pods-CarvideTests.release.xcconfig"; sourceTree = "<group>"; };
 		C716A7F5397C1FDD0274D586 /* Pods-Carvide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carvide.release.xcconfig"; path = "Target Support Files/Pods-Carvide/Pods-Carvide.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		649F763828A733DF003CA6DC /* Carvide */ = {
 			isa = PBXGroup;
 			children = (
+				64F5E14328AE075900033654 /* Info.plist */,
 				64F5E14128ADEB8100033654 /* player.html */,
 				6498F87628A94A7000CDF0A8 /* Controllers */,
 				6498F87328A9475000CDF0A8 /* Views */,
@@ -685,6 +687,7 @@
 				DEVELOPMENT_TEAM = PTHCQB8J66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carvide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -715,6 +718,7 @@
 				DEVELOPMENT_TEAM = PTHCQB8J66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carvide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
