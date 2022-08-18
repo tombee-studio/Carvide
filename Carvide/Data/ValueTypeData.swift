@@ -17,4 +17,14 @@ struct ValueTypeData: Codable, Identifiable {
     let created: String
     let title: String
     let axis_type: AxisType
+    
+    static func createValueTypeData() -> ValueTypeData {
+        let valueType = ValueTypeData(
+            id: 0,
+            created: "",
+            title: "",
+            axis_type: AxisType.MID_ZERO
+        )
+        return valueType
+    }
 }
