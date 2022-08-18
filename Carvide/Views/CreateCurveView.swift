@@ -26,7 +26,11 @@ struct CreateCurveView: View {
                     CurveInputView()
                 }
             }.padding(5)
-            Group {
+            HStack {
+                ValueTypeView(value_type: valueType)
+                    .alignmentGuide(.leading, computeValue: {d in d[.leading]})
+                    .padding(20)
+                Spacer()
                 Button(action: {
                     isOpenCurveInputView.toggle()
                 }) {
@@ -38,7 +42,7 @@ struct CreateCurveView: View {
                         .padding()
                         .frame(height: 84)
                         .cornerRadius(25)
-                }
+                }.padding(20)
             }
         }
     }

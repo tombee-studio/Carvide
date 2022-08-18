@@ -22,7 +22,7 @@ struct ValueTypeData: Codable, Identifiable {
         let valueType = ValueTypeData(
             id: 0,
             created: "",
-            title: "",
+            title: "テスト",
             axis_type: AxisType.MID_ZERO
         )
         return valueType
