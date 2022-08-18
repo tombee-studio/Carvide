@@ -22,8 +22,9 @@ struct CreateCurveView: View {
     var body: some View {
         VStack {
             ZStack {
+                CurveVideoPlayer(content: content)
                 Rectangle()
-                    .fill(Color.white)
+                    .fill(Color.white.opacity(0.5))
                     .border(Color.black, width: 1)
                     .gesture(
                         DragGesture(minimumDistance: 0, coordinateSpace: .local)
@@ -42,7 +43,6 @@ struct CreateCurveView: View {
                                 currentPoints = []
                             })
                     )
-                
                 Path { path in
                     path.addLines(points.map { CGPoint(x: CGFloat($0.x), y: CGFloat($0.y)) })
                 }.stroke(Color.red, lineWidth: 3)
