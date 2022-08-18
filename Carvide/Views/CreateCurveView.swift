@@ -25,20 +25,21 @@ struct CreateCurveView: View {
                 if(isOpenCurveInputView) {
                     CurveInputView()
                 }
-                Group {
-                    Button(action: {
-                        isOpenCurveInputView.toggle()
-                    }) {
-                        Text("感情曲線入力画面を開く")
-                            .bold()
-                            .padding()
-                            .frame(height: 84)
-                            .foregroundColor(Color.white)
-                            .background(Color.blue)
-                            .cornerRadius(25)
-                    }
-                }
             }.padding(5)
+            Group {
+                Button(action: {
+                    isOpenCurveInputView.toggle()
+                }) {
+                    Image(systemName: "chart.xyaxis.line")
+                        .resizable()
+                        .frame(width: 48, height: 48)
+                    Text("感情曲線を描く")
+                        .bold()
+                        .padding()
+                        .frame(height: 84)
+                        .cornerRadius(25)
+                }
+            }
         }
     }
 }

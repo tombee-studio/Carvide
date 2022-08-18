@@ -29,5 +29,6 @@ struct CurveVideoPlayer: View {
 struct CurveVideoPlayer_Previews: PreviewProvider {
     static var previews: some View {
         CurveVideoPlayer(content: ContentData.createContentData())
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
