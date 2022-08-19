@@ -90,7 +90,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func buildURLRequestOfRequest() -> URLRequest? {
-        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/?format=json") else {
+        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/?format=json&role=participant") else {
             return nil
         }
         let request = URLRequest(url: url)
