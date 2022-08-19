@@ -21,4 +21,23 @@ struct RequestData: Codable, Identifiable {
     let value_type: ValueTypeData
     let owner: UserData
     let expiration_date: String
+    
+    static func createRequestData() -> RequestData {
+        let request = RequestData(
+            id: 0,
+            room_name: "axrgPd",
+            created: "",
+            title:"テストタイトル",
+            description: "テスト説明テストディスクリプションテスト説明テストディスクリプションテスト説明テストディスクリプション",
+            intervals: 0,
+            values: [],
+            participants: [],
+            is_able_to_send: false,
+            content: ContentData.createContentData(),
+            value_type: ValueTypeData.createValueTypeData(),
+            owner: UserData.createGuestUserData(),
+            expiration_date: ""
+        )
+        return request
+    }
 }

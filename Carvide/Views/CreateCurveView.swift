@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct CreateCurveView: View {
+    @State private var points: [PointData] = []
+    @State private var currentPoints: [PointData] = []
     @State var isOpenCurveInputView: Bool = false
     
+    let request: RequestData
     let content: ContentData
     let valueType: ValueTypeData
     
-    init(content: ContentData, valueType: ValueTypeData) {
-        self.content = content
-        self.valueType = valueType
+    init(request: RequestData) {
+        self.request = request
+        self.content = request.content
+        self.valueType = request.value_type
     }
     
     var body: some View {
@@ -23,7 +27,43 @@ struct CreateCurveView: View {
             ZStack {
                 CurveVideoPlayer(content: content)
                 if(isOpenCurveInputView) {
-                    CurveInputView()
+                    ZStack {
+                        Rectangle()
+                            .fill(Color.white.opacity(0.5))
+                            .border(Color.black, width: 1)
+                            .gesture(
+                                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                                    .onChanged({ value in
+                                        currentPoints.append(PointData(cgpoint: value.location))
+                                        currentPoints = currentPoints.sorted(by: { pointA, pointB in
+                                            pointA.x < pointB.x
+                                        })
+                                    })
+                                    .onEnded({ value in
+                                        currentPoints.append(PointData(cgpoint: value.location))
+                                        currentPoints = currentPoints.sorted { pointA, pointB in
+                                            pointA.x < pointB.x
+                                        }
+                                        let startX = currentPoints[0].x
+                                        let endX = currentPoints[currentPoints.count - 1].x
+                                        points = points.filter({ point in startX > point.x || point.x > endX })
+                                        points += currentPoints
+                                        points = points.sorted(by: { pointA, pointB in
+                                            pointA.x < pointB.x
+                                        })
+                                        currentPoints = []
+                                    })
+                            )
+                        Path { path in
+                            path.addLines(points.map {
+                                CGPoint(x: CGFloat($0.x), y: CGFloat($0.y)) })
+                        }.stroke(Color.red, lineWidth: 3)
+                        
+                        Path { path in
+                            path.addLines(currentPoints.map {
+                                CGPoint(x: CGFloat($0.x), y: CGFloat($0.y)) })
+                        }.stroke(Color.blue, lineWidth: 3)
+                    }
                 }
             }.padding(5)
             HStack {
@@ -31,18 +71,30 @@ struct CreateCurveView: View {
                     .alignmentGuide(.leading, computeValue: {d in d[.leading]})
                     .padding(20)
                 Spacer()
-                Button(action: {
-                    isOpenCurveInputView.toggle()
-                }) {
-                    Image(systemName: "chart.xyaxis.line")
-                        .resizable()
-                        .frame(width: 48, height: 48)
-                    Text("感情曲線を描く")
-                        .bold()
-                        .padding()
-                        .frame(height: 84)
-                        .cornerRadius(25)
-                }.padding(20)
+                HStack {
+                    Button(action: {
+                        isOpenCurveInputView.toggle()
+                    }) {
+                        Image(systemName: "chart.xyaxis.line")
+                            .resizable()
+                            .frame(width: 48, height: 48)
+                        Text("描画")
+                            .bold()
+                            .padding()
+                            .frame(height: 84)
+                    }.padding(20)
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .frame(width: 48, height: 48)
+                        Text("保存")
+                            .bold()
+                            .padding()
+                            .frame(height: 84)
+                    }.padding(20)
+                }
             }
         }
     }
@@ -50,9 +102,7 @@ struct CreateCurveView: View {
 
 struct CreateCurveView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateCurveView(
-            content: ContentData.createContentData(),
-            valueType: ValueTypeData.createValueTypeData())
+        CreateCurveView(request: RequestData.createRequestData())
         .previewInterfaceOrientation(.landscapeLeft)
     }
 }

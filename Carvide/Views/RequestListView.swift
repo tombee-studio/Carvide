@@ -17,8 +17,7 @@ struct RequestListView: View {
                     ForEach(result.models) { request in
                         NavigationLink(
                             destination: CreateCurveView(
-                                content: request.content,
-                                valueType: request.value_type),
+                                request: request),
                             label: {
                                 Text(request.title)
                             })
