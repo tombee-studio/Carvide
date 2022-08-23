@@ -61,7 +61,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func getLoginData(_ username: String, _ password: String) -> URLRequest? {
-        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/login/") else {
+        guard let url = URL(string: "http://127.0.0.1:8000/api/login/") else {
             return nil
         }
         var request = URLRequest(url: url)
@@ -82,7 +82,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func getMeRequest() -> URLRequest? {
-        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/me/") else {
+        guard let url = URL(string: "http://127.0.0.1:8000/api/me/") else {
             return nil
         }
         let request = URLRequest(url: url)
@@ -90,7 +90,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func buildURLRequestOfRequest() -> URLRequest? {
-        guard let url = URL(string: "https://enigmatic-thicket-08912.herokuapp.com/api/requests/?format=json&role=participant") else {
+        guard let url = URL(string: "http://127.0.0.1:8000/api/requests/?format=json&role=participant") else {
             return nil
         }
         let request = URLRequest(url: url)
