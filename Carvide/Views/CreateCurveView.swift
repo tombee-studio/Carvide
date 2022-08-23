@@ -84,7 +84,21 @@ struct CreateCurveView: View {
                             .frame(height: 84)
                     }.padding(20)
                     Button(action: {
-                        
+                        Task.init {
+                            let model = EmonotateModel()
+                            if let user = await model.getMe() {
+                                let curveData = CurveData(
+                                    id: 0,
+                                    created: "",
+                                    values: points,
+                                    version: "1.0.0",
+                                    room_name: request.room_name,
+                                    locked: true,
+                                    user: user, content: content, value_type: valueType)
+                                let data = await model.createCurveData(curve: curveData)
+                                print(data)
+                            }
+                        }
                     }) {
                         Image(systemName: "square.and.arrow.up")
                             .resizable()

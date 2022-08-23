@@ -12,6 +12,17 @@ public struct EmonotateAPIClient {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
+    
+    public func getCookie(name: String) -> HTTPCookie? {
+        if let cookies = URLSessionConfiguration.default.httpCookieStorage?.cookies {
+            for cookie in cookies {
+                if cookie.name == name {
+                    return cookie
+                }
+            }
+        }
+        return nil
+    }
 
     public func send(with: URLRequest) async throws -> (Data, URLResponse) {
         return try await session.data(for: with)

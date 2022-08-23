@@ -60,6 +60,16 @@ class EmonotateModel: ObservableObject {
         return userData
     }
     
+    func createCurveData(curve: CurveData) async -> CurveData? {
+        let client = EmonotateAPIClient()
+        let decoder = JSONDecoder()
+        guard let request = buildCreateCurveRequest(curve) else { return nil }
+        let element1 = try? await client.send(with: request)
+        print(String(data: element1!.0, encoding: .utf8)!)
+        let data = try? decoder.decode(CurveData.self, from: element1!.0)
+        return data
+    }
+    
     private func getLoginData(_ username: String, _ password: String) -> URLRequest? {
         guard let url = URL(string: "http://127.0.0.1:8000/api/login/") else {
             return nil
@@ -74,6 +84,46 @@ class EmonotateModel: ObservableObject {
         ]
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+            return request
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
+    private func buildCreateCurveRequest(_ curve: CurveData) -> URLRequest? {
+        guard let csrftoken = EmonotateAPIClient().getCookie(name: "csrftoken") else {
+            print("NEVER csrftoken")
+            return nil
+        }
+        guard let url = URL(string: "http://127.0.0.1:8000/api/curves/?format=json") else {
+            return nil
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(csrftoken.value, forHTTPHeaderField: "X-CSRFToken")
+        request.addValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
+        let params: [String: Any] = [
+            "values": curve.values.map {point in
+                return [
+                    "x": point.x,
+                    "y": point.y,
+                    "axis": "vh",
+                    "type": "fxied"
+                ]
+            },
+            "version": "1.1.0",
+            "locked": true,
+            "room_name": curve.room_name,
+            "user": curve.user.id,
+            "content": curve.content.id,
+            "value_type": curve.value_type.id
+        ]
+        do{
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            print(jsonData)
+            request.httpBody = jsonData
             return request
         } catch {
             print(error.localizedDescription)
