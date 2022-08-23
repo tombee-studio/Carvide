@@ -10,6 +10,8 @@ import Foundation
 class EmonotateModel: ObservableObject {
     @Published var user: UserData? = nil
     
+    let API_URL = "http://127.0.0.1:8000"
+    
     enum EmonotateModelError: Error {
         case CANT_CREATE_REQUEST
     }
@@ -71,7 +73,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func getLoginData(_ username: String, _ password: String) -> URLRequest? {
-        guard let url = URL(string: "http://127.0.0.1:8000/api/login/") else {
+        guard let url = URL(string: "\(API_URL)/api/login/") else {
             return nil
         }
         var request = URLRequest(url: url)
@@ -96,7 +98,7 @@ class EmonotateModel: ObservableObject {
             print("NEVER csrftoken")
             return nil
         }
-        guard let url = URL(string: "http://127.0.0.1:8000/api/curves/?format=json") else {
+        guard let url = URL(string: "\(API_URL)/api/curves/?format=json") else {
             return nil
         }
         var request = URLRequest(url: url)
@@ -132,7 +134,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func getMeRequest() -> URLRequest? {
-        guard let url = URL(string: "http://127.0.0.1:8000/api/me/") else {
+        guard let url = URL(string: "\(API_URL)/api/me/") else {
             return nil
         }
         let request = URLRequest(url: url)
@@ -140,7 +142,7 @@ class EmonotateModel: ObservableObject {
     }
     
     private func buildURLRequestOfRequest() -> URLRequest? {
-        guard let url = URL(string: "http://127.0.0.1:8000/api/requests/?format=json&role=participant") else {
+        guard let url = URL(string: "\(API_URL)/api/requests/?format=json&role=participant") else {
             return nil
         }
         let request = URLRequest(url: url)
