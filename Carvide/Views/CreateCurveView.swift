@@ -26,6 +26,9 @@ struct CreateCurveView: View {
         VStack {
             ZStack {
                 CurveVideoPlayer(content: content) { item in
+                    /*
+                     * 動画読み込みの際の処理を追加
+                     */
                     print(item.asset.duration.seconds)
                 }
                 if(isOpenCurveInputView) {
