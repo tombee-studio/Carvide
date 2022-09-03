@@ -10,7 +10,7 @@ import Foundation
 class EmonotateModel: ObservableObject {
     @Published var user: UserData? = nil
     
-    let API_URL = "http://127.0.0.1:8000"
+    let API_URL = "https://enigmatic-thicket-08912.herokuapp.com"
     
     enum EmonotateModelError: Error {
         case CANT_CREATE_REQUEST
