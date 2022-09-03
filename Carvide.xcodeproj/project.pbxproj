@@ -88,6 +88,7 @@
 		64EB783E28A73A110043109F /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		64EB784028A73AE20043109F /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
 		64EB784228A73B4F0043109F /* CurveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveData.swift; sourceTree = "<group>"; };
+		64EBEEBB28C2D2D300600169 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		64F5E13C28ADDDA700033654 /* CurveVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveVideoPlayer.swift; sourceTree = "<group>"; };
 		64F5E13E28ADE37900033654 /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
 		64F5E14128ADEB8100033654 /* player.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = player.html; sourceTree = "<group>"; };
@@ -217,6 +218,7 @@
 				649F763928A733DF003CA6DC /* CarvideApp.swift */,
 				649F763D28A733E1003CA6DC /* Assets.xcassets */,
 				649F763F28A733E1003CA6DC /* Preview Content */,
+				64EBEEBB28C2D2D300600169 /* README.md */,
 			);
 			path = Carvide;
 			sourceTree = "<group>";
