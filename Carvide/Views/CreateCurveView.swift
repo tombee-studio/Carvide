@@ -15,22 +15,24 @@ struct CreateCurveView: View {
     let request: RequestData
     let content: ContentData
     let valueType: ValueTypeData
+    let curveVideoPlayer: CurveVideoPlayer
     
     init(request: RequestData) {
         self.request = request
         self.content = request.content
         self.valueType = request.value_type
+        self.curveVideoPlayer = CurveVideoPlayer(content: content) { item in
+            /*
+             * 動画読み込みの際の処理を追加
+             */
+            print(item.asset.duration.seconds)
+        }
     }
     
     var body: some View {
         VStack {
             ZStack {
-                CurveVideoPlayer(content: content) { item in
-                    /*
-                     * 動画読み込みの際の処理を追加
-                     */
-                    print(item.asset.duration.seconds)
-                }
+                curveVideoPlayer
                 if(isOpenCurveInputView) {
                     GeometryReader {geometry in
                         ZStack {
@@ -40,6 +42,7 @@ struct CreateCurveView: View {
                                 .gesture(
                                     DragGesture(minimumDistance: 0, coordinateSpace: .local)
                                         .onChanged({ value in
+                                            print(curveVideoPlayer.getDuration())
                                             currentPoints.append(PointData(cgpoint: value.location))
                                             currentPoints = currentPoints.sorted(by: { pointA, pointB in
                                                 pointA.x < pointB.x
